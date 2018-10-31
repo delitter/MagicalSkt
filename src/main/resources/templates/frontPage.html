@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>SK Telecom T1</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div>
+        <img th:src="@{/sktlogo.jpg}" width="500">
+    </div>
+    <div>
+        <audio th:src="@{/Worlds%20Collide.mp3}" controls="controls" autoplay="autoplay" loop="loop"></audio>
+    </div>
+    <div>
+        <span th:text="${TeamName}"/>
+    </div>
+</body>
+</html>
