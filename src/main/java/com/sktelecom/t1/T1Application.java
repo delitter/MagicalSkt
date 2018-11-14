@@ -1,6 +1,8 @@
 package com.sktelecom.t1;
 
 import com.sktelecom.t1.Settings.PageSettings;
+
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
+@MapperScan("com.sktelecom.t1.Daos")
 public class T1Application {
     @Autowired
     private PageSettings pageSettings;
