@@ -1,7 +1,5 @@
 package com.sktelecom.t1.Models;
 
-import java.util.Date;
-
 public class User {
     /**
      *
@@ -55,7 +53,7 @@ public class User {
      *
      * @mbg.generated
      */
-    private Date regtime;
+    private String regtime;
 
     /**
      *
@@ -194,7 +192,7 @@ public class User {
      *
      * @mbg.generated
      */
-    public Date getRegtime() {
+    public String getRegtime() {
         return regtime;
     }
 
@@ -206,8 +204,8 @@ public class User {
      *
      * @mbg.generated
      */
-    public void setRegtime(Date regtime) {
-        this.regtime = regtime;
+    public void setRegtime(String regtime) {
+        this.regtime = regtime == null ? null : regtime.trim();
     }
 
     /**

@@ -11,7 +11,7 @@
     <result column="passWord" jdbcType="VARCHAR" property="password" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="nickName" jdbcType="VARCHAR" property="nickname" />
-    <result column="regTime" jdbcType="DATE" property="regtime" />
+    <result column="regTime" jdbcType="VARCHAR" property="regtime" />
     <result column="emoji" jdbcType="VARCHAR" property="emoji" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -34,7 +34,7 @@
       nickName, regTime, emoji
       )
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{nickname,jdbcType=VARCHAR}, #{regtime,jdbcType=DATE}, #{emoji,jdbcType=VARCHAR}
+      #{nickname,jdbcType=VARCHAR}, #{regtime,jdbcType=VARCHAR}, #{emoji,jdbcType=VARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.sktelecom.t1.Models.User">
@@ -47,7 +47,7 @@
       `passWord` = #{password,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       nickName = #{nickname,jdbcType=VARCHAR},
-      regTime = #{regtime,jdbcType=DATE},
+      regTime = #{regtime,jdbcType=VARCHAR},
       emoji = #{emoji,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

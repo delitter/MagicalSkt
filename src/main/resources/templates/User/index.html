@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js"
+            th:src="@{~/My97DatePicker/WdatePicker.js}"></script>
+</head>
+
+<body>
+    <form th:action="@{/User/add}" th:object="${user}" method="post" style="text-align: center;
+    background-color: #333;
+    width: 320px;
+    margin: 0 auto;
+    color: white;">
+        <h1>用户</h1>
+
+        <p>ID: <input type="text" name="username" th:field="*{username}"/></p>
+        <p>password: <input type="text" name="password" th:field="*{password}"/></p>
+        <p>email: <input type="text" name="email" th:field="*{email}"/></p>
+        <p>name: <input type="text" name="nickname" th:field="*{nickname}"/></p>
+        <p>emoji: <input type="text" name="emoji" th:field="*{emoji}"/></p>
+        <p>time: <input class="Wdate" type="text" name="regtime" th:field="*{regtime}"
+                        onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></p>
+        <p><input type="submit" value="submit"/><input type="reset" value="reset"/></p>
+    </form>
+    <h1>用户列表</h1>
+    <div>
+        <!--<ul>-->
+            <!--<li th:each="user:${users}" style="float: none;">-->
+                <!--<p style="float: left;">password:<span th:text="${user.password}"></span> </p>-->
+                <!--<p style="float: left;">email:<span th:text="${user.email}"></span> </p>-->
+                <!--<p style="float: left;">name:<span th:text="${user.nickname}"></span> </p>-->
+                <!--<p style="float: left;">time:<span th:text="${user.regtime}"></span> </p>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <table style="border:solid 1px black; width: 100%;">
+            <thead>
+                <td style="border: 1px solid red; text-align: center">password</td>
+                <td style="border: 1px solid yellow; text-align: center">email</td>
+                <td style="border: 1px solid green; text-align: center">name</td>
+                <td style="border: 1px solid blue; text-align: center">time</td>
+            </thead>
+            <tbody th:each="user:${users}">
+                <td style="border: 1px solid red; text-align: center"><p><span th:text="${user.password}"></span> </p></td>
+                <td style="border: 1px solid yellow; text-align: center"><p><span th:text="${user.email}"></span> </p></td>
+                <td style="border: 1px solid green; text-align: center"><p><span th:text="${user.nickname}"></span> </p></td>
+                <td style="border: 1px solid blue; text-align: center"><p><span th:text="${user.regtime}"></span> </p></td>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
