@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Players</title>
+</head>
+<body>
+    <form th:action="@{/Player/add}" th:object="${player}" method="post" style="text-align: center;
+        background-color: #333;
+        width: 320px;
+        margin: 0 auto;
+        color: white;">
+        <h1>基本信息</h1>
+
+        <p>ID: <input type="text" name="playerID" th:field="*{playerID}"/></p>
+        <p>position: <input type="text" name="position" th:field="*{position}"/></p>
+        <p>age: <input type="number" name="age" th:field="*{age}"/></p>
+        <div>
+         <div>
+          <input placeholder="请选择文件" type="file" name="file"/>
+         </div>
+        </div>
+        <div >
+         <div>
+          <div>
+             <div>
+               <button type="submit" id="submitbtn" style="text-align: center">文件上传</button>
+             </div>
+          </div>
+         </div>
+        </div>
+        <p><input type="submit" value="submit"/><input type="reset" value="reset"/></p>
+    </form>
+    <h1>用户列表</h1>
+    <div>
+        <table style="border:solid 1px black; width: 100%;">
+            <thead>
+            <td style="border: 1px solid red; text-align: center">password</td>
+            <td style="border: 1px solid yellow; text-align: center">email</td>
+            <td style="border: 1px solid green; text-align: center">name</td>
+            <td style="border: 1px solid blue; text-align: center">time</td>
+            </thead>
+            <tbody th:each="user:${users}">
+            <td style="border: 1px solid red; text-align: center"><p><span th:text="${user.password}"></span> </p></td>
+            <td style="border: 1px solid yellow; text-align: center"><p><span th:text="${user.email}"></span> </p></td>
+            <td style="border: 1px solid green; text-align: center"><p><span th:text="${user.nickname}"></span> </p></td>
+            <td style="border: 1px solid blue; text-align: center"><p><span th:text="${user.regtime}"></span> </p></td>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

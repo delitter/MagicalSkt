@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/User")
@@ -28,7 +29,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/add")
-	public  String add(@ModelAttribute User user, Model model){
+	public  String add(@ModelAttribute User user, @ModelAttribute MultipartFile emoji, Model model){
 		user.setId(0);
 		userMapper.insert(user);
 		model.addAttribute("users", userMapper.selectAll());
